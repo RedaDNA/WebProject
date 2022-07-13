@@ -4,8 +4,34 @@
 <head>
   <meta charset="utf-8">
   <title>Result</title>
+      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+   <script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
 
-  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+  <script > anychart.onDocumentReady(function() {
+
+  // set the data
+  var data = [
+      {x: "K-2", value: 0.2},
+      {x: "3-5", value: 0.2},
+      {x: "6-9", value: 0.2},
+      {x: "10-12", value: 0.4},
+  ];
+
+  // create the chart
+  var chart = anychart.pie();
+
+  // set the chart title
+  chart.title("Predicted age for the text you have typed");
+
+  // add the data
+  chart.data(data);
+
+  // display the chart in the container
+  chart.container('container');
+  chart.draw();
+
+});</script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,19 +49,11 @@
   </style>
 </head>
 
-<body class="center">
+<body class="center" >
 
-  {% if result == 'yes' %}
-  <h1 style=" color: rgb(88, 180, 88); font-weight: 900;">
-  <i class="fas fa-swimmer"></i> Survived!
 
-  {% elif result == 'no' %}
-  <h1 style="color: rgb(212, 85, 85); font-weight: 900;">
-  <i class="fas fa-skull"></i> Coudn't survive!
+<div id="container" style="width: 500px; height: 500px"></div>
 
-  {% else %}
-  <h1 style="color: rgb(31, 15, 15); font-weight: 900;">ERROR</h1>
-  {% endif %}
 
 </body>
 

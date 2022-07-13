@@ -26,6 +26,22 @@ def getPredicitions(userinput):
     prediction = model.predict(userinput_scaled)
     print(prediction)
     return prediction
+
+
+def getPredicitionsDemo(userinput):
+    #model = pickle.load(open('CNN-LSTMgradesdatasetsplited62%pre.sav', 'rb'))
+    #model=joblib.load('CNN-LSTMgradesdatasetsplited62%pre.sav')
+    #model=joblib.load('CBOW_grades_dataset_76_pre.pkl')
+    #localhost_save_option = tf.saved_model.SaveOptions(experimental_io_device="/job:localhost")
+    #model = tf.keras.models.load_model('CBOW_grades_dataset_76_pre')
+    #with gzip.open('Completed_model.joblib', 'rb') as f:
+     #   model = pickle.load(f)
+
+    #userinput_scaled=standard_scalar(userinput,model)
+    #prediction = model.predict(userinput_scaled)
+    #print(prediction)
+    prediction="this is result "
+    return prediction
 #def hi(request):
  #   return HttpResponse('<h1> This is mY home page</h1>')
 def home(request):
@@ -35,7 +51,7 @@ def home(request):
 def result(request):
     input=request.GET['userinput']
     #result = request.POST.get('userinput_scaled')
-    result=getPredicitions(input)
+    result=getPredicitionsDemo(input)
     print(result)
     #result = getPredicitions(userinput)
     #return render(request, 'result.html', {'result': result})
