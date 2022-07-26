@@ -6,16 +6,26 @@
   <title>Result</title>
       <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
       <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
-   <script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
+<script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
 
-  <script > anychart.onDocumentReady(function() {
+  <script >
+var class0 = {{result.0.0}}
+var class1 = {{result.0.1}}
+var class2 = {{result.0.2}}
+var class3 = {{result.0.3}}
+var class4 = {{result.0.4}}
+
+
+
+  anychart.onDocumentReady(function() {
 
   // set the data
   var data = [
-      {x: "K-2", value: 0.2},
-      {x: "3-5", value: 0.2},
-      {x: "6-9", value: 0.2},
-      {x: "10-12", value: 0.4},
+      {x: "7-8", value: class0},
+      {x: "8-9", value:  class1},
+      {x: "9-10", value:class2},
+         {x: "11-14", value:class3},
+      {x: "14-16", value: class4}
   ];
 
   // create the chart

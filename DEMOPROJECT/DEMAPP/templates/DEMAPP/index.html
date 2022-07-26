@@ -72,12 +72,12 @@ height: 200px;
     </div>
   </div>
   </form>
-    <form action="result">
+    <form action="urlresult">
        {% csrf_token %}
       <div class="form-row">
       <div class="form-group col-12 col-md-8 textarea" style="margin-top:30px">
          <label class="labelclass"> URL</label>
-       <input  class="form-control" placeholder="put your URL here" required type="text" name="userinput">
+       <input  class="form-control" placeholder="put your URL here" required type="text" name="url">
       </div>
     <div class="form-group col-12 col-md-4" style="margin-top:60px">
           <input class="btn predictbtn" type="submit" value='Predict'>

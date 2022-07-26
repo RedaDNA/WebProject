@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+<script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
+
+  <script >
+var class0 = {{result.0.0}}
+var class1 = {{result.0.1}}
+var class2 = {{result.0.2}}
+var class3 = {{result.0.3}}
+var class4 = {{result.0.4}}
+
+
+
+  anychart.onDocumentReady(function() {
+
+  // set the data
+  var data = [
+      {x: "7-8", value: class0},
+      {x: "8-9", value:  class1},
+      {x: "9-10", value:class2},
+         {x: "11-14", value:class3},
+      {x: "14-16", value: class4}
+  ];
+
+  // create the chart
+  var chart = anychart.pie();
+
+  // set the chart title
+  chart.title("Predicted age for the text you have typed");
+
+  // add the data
+  chart.data(data);
+
+  // display the chart in the container
+  chart.container('container');
+  chart.draw();
+
+});</script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(230, 239, 245);
+    }
+  </style>
+</head>
+
+<body class="center" >
+
+
+<div id="container" style="width: 500px; height: 500px"></div>
+
+
+</body>
+
+</html>
