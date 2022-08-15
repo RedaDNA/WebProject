@@ -25,8 +25,6 @@ from gensim.models import Word2Vec
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-text = "   This is a message to be cleaned. It may involve some things like: <br>, ?, :, ''  adjacent spaces and tabs     .  "
-
 
 # convert to lowercase and remove punctuations and characters and then strip
 def preprocess(text):
@@ -34,7 +32,7 @@ def preprocess(text):
     text = text.strip()  # get rid of leading/trailing whitespace
     text = re.compile('<.*?>').sub('', text)  # Remove HTML tags/markups
     text = re.compile('[%s]' % re.escape(string.punctuation)).sub(' ',
-                                                                  text)  # Replace punctuation with space. Careful since punctuation can sometime be useful
+                                                                  text)  # Replace punctuation with space.
     text = re.sub('\s+', ' ', text)  # Remove extra space and tabs
     text = re.sub('|', ' ', text)  # Remove extra space and tabs
     text = re.sub(r'\[[0-9]*\]', ' ', text)  # [0-9] matches any digit (0 to 10000...)
@@ -46,19 +44,17 @@ def preprocess(text):
     return text
 
 
-text = preprocess(text)
-print(text)  # text is a string
 
 
-# 3. LEXICON-BASED TEXT PROCESSING EXAMPLES
 
-# 1. STOPWORD REMOVAL
+
+# STOPWORD REMOVAL
 def stopword(string):
     a = [i for i in string.split() if i not in stopwords.words('english')]
     return ' '.join(a)
 
 
-# 2. STEMMING
+# STEMMING
 
 # Initialize the stemmer
 snow = SnowballStemmer('english')
@@ -105,7 +101,7 @@ def lemmatizer(string):
     a=[wl.lemmatize(tag[0], get_wordnet_pos(tag[1])) for idx, tag in enumerate(word_pos_tags)] # Map the position tag and lemmatize the word/token
     return " ".join(a)
 def clan_text(string):
-        return lemmatizer(stopword(preprocess(string)))
+        return stopword(preprocess(string))
 def get_url_text(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html, features="html.parser")

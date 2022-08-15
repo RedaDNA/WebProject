@@ -2,67 +2,584 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Result</title>
-      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
-      <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
-<script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-  <script >
-var class0 = {{result.0.0}}
-var class1 = {{result.0.1}}
-var class2 = {{result.0.2}}
-var class3 = {{result.0.3}}
-var class4 = {{result.0.4}}
-
-
-
-  anychart.onDocumentReady(function() {
-
-  // set the data
-  var data = [
-      {x: "7-8", value: class0},
-      {x: "8-9", value:  class1},
-      {x: "9-10", value:class2},
-         {x: "11-14", value:class3},
-      {x: "14-16", value: class4}
-  ];
-
-  // create the chart
-  var chart = anychart.pie();
-
-  // set the chart title
-  chart.title("Predicted age for the text you have typed");
-
-  // add the data
-  chart.data(data);
-
-  // display the chart in the container
-  chart.container('container');
-  chart.draw();
-
-});</script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-  <style>
-    .center {
-      position: absolute;
-      text-align: center;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: rgb(230, 239, 245);
-    }
-  </style>
+	<!-- 3rd party CSS -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+
+
+	<!-- -->
+	<meta charset="utf-8">
+	<title>Result</title>
+	<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+	<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+	<script src="DEMOPROJECT/DEMAPP/templates/DEMAPP/pie.js"></script>
+	<link rel="stylesheet" href="/css/style.css">
+	</link>
+
+	<script>
+		var class0 = {{ result.0.0}}
+		var class1 = {{ result.0.1}}
+		var class2 = {{ result.0.2}}
+		var class3 = {{ result.0.3}}
+		var class4 = {{ result.0.4}}
+
+
+
+		anychart.onDocumentReady(function () {
+
+			// set the data
+			var data = [
+				{ x: "7-8", value: class0 },
+				{ x: "8-9", value: class1 },
+				{ x: "9-10", value: class2 },
+				{ x: "11-14", value: class3 },
+				{ x: "14-16", value: class4 }
+			];
+
+			// create the chart
+			var chart = anychart.pie();
+			chart.background().fill("aliceblue");
+			// set the chart title
+			chart.title("Results");
+
+			// add the data
+			chart.data(data);
+
+			// display the chart in the container
+			chart.container('container');
+			chart.draw();
+
+		});
+	</script>
+
+	<style>
+		.center {
+			position: absolute;
+			text-align: center;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: rgb(230, 239, 245);
+		}
+
+		.chart_diagram {
+			width: 100px;
+			float: right;
+
+		}
+		.card_text{
+		font-size: 13.6px;
+		}
+	</style>
 </head>
 
-<body class="center" >
+<body style="background-color:aliceblue;">
+	<div style="text-align:center;">
+		<h1 style="color:rgb(44, 44, 90); font-weight: 700;">
+			<i class="fa fa-commenting-o"></i> Appropriate age of texts Predictor
+		</h1>
+
+		<p style="color:rgb(51, 51, 83); font-weight: 700;">
+
+		</p>
+	</div>
 
 
-<div id="container" style="width: 500px; height: 500px"></div>
+
+	<div class="row">
+		<div class="col-12 col-lg-6">
+
+			<div class="row" style=" margin-top:20px;margin-bottom:40px;">
+
+				<div class="card shadow" style="height:550px ;width:100%;
+				margin-left:138px;
+background-color:white;
+
+				 border: none;">
+					<div class="card-header" style="background-color: rgba(0,0,0,0.75); text-align:center;">
+						<h5 class="card-title" style="color: white;">Your Text</h5>
+					</div>
+					<div class="card-body" style="overflow-y: scroll;">
+						<p class="text-muted">
+							{{input}}
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-12 col-lg-6">
+			<div id="container" style="width: 100%; height: 550px" class="chart_diagram"></div>
+
+		</div>
+
+	</div>
+	<div class="col-sm-12">
+		<div class="statistics-details d-flex align-items-center justify-content-between">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 card_text">Complex word percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Complex_word_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: {{Complex_word_percent}}%" aria-valuenow="{{Complex_word_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">Long word percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Long_word_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: {{Long_word_percent}}%" aria-valuenow="{{Long_word_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">Difficult word percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Difficult_word_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{Difficult_word_percent}}%" aria-valuenow="{{Difficult_word_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">
+                                                Average letters per word</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{Avg_letters_per_word}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+<div class="statistics-details d-flex align-items-center justify-content-between">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 card_text">
+                                                Average words per sentence </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{Avg_words_per_sentence}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">
+                                                Average syllables per word </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{Avg_syllables_per_word}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">Long sentence percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Long_sent_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{Long_sent_percent}}%" aria-valuenow="{{Long_sent_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">Comma percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Comma_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-warning" role="progressbar"
+                                                            style="width: {{Comma_percent}}%" aria-valuenow="{{Comma_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+        <div class="statistics-details d-flex align-items-center justify-content-between">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 card_text">
+                                                Noun phrase per sentence </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{NP_per_sent}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">
+                                               Verb phrase per sentence </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{VP_per_sent}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">
+                                                prepositional phrase per sentence </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{PP_per_sent}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">
+                                               subordinate clause per sentence </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{SBAR_per_sent}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+        <div class="statistics-details d-flex align-items-center justify-content-between">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 card_text">Average length of noun phrase</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{avg_NP_size}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">Average length of verb phrase</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{avg_VP_size}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">Average length of prepositional phrase</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{avg_PP_size}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">
+                                              Average height of a parse tree </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{avg_parse_tree}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+	<div class="col-sm-12">
+		<div class="statistics-details d-flex align-items-center justify-content-between">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 card_text">Noun percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Noun_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                            style="width: {{Noun_percent}}%" aria-valuenow="{{Noun_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">Proper noun percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Proper_noun_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: {{Proper_noun_percent}}%" aria-valuenow="{{Proper_noun_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">Pronoun percent
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{Pronoun_percent}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <div class="progress-bar bg-info" role="progressbar"
+                                                            style="width: {{Pronoun_percent}}%" aria-valuenow="{{Pronoun_percent}}" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">
+                                               interrogative sentences per sentence</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{SBARQ_per_sent}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+        <div style="text-align:center;margin-bottom:30px;">
+            <h4>
+            Appropriate grades using famous formulas
+            </h4>
+        </div>
+        <div class="statistics-details d-flex align-items-center justify-content-between">
+                     <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success mb-1 card_text">flesch reading ease</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{flesch_reading_ease}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info mb-1 card_text">gunning fog score</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{gunning_fog}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning mb-1 card_text">
+                                             dale chall readability score </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{dale_chall_readability_score}}</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+		</div>
+	</div>
+</div>
+	<main class="col main pt-5 mt-3 h-100 overflow-auto">
+		<!-- Specific content of the page -->
+
+	</main>
+
 
 
 </body>
